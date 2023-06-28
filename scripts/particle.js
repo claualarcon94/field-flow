@@ -30,21 +30,14 @@ function Particle() {
   };
 
   this.show = () => {
-    //stroke(0,0,255);
-    stroke(0,150,150);
-   /* 
-    stroke(this.h, 255, 255, 25);
+    stroke(this.h, 50, 255, 25);
     this.h = this.h + 1;
     if (this.h > 255) {
       this.h = 0;
     }
     strokeWeight(1);
-    */
-    strokeWeight(0.1);
     line(this.pos.x, this.pos.y, this.prevPos.x, this.prevPos.y);
-    //point(this.pos.x,this.pos.y);
     this.updatePrev();
-    //console.log(this.pos);
   };
 
   this.updatePrev = () => {

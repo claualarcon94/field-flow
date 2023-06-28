@@ -30,11 +30,11 @@ function setup() {
   }
   loadPixels();
   noiseSeed(99);
-  background(255);
+  background(25);
 }
 
 function draw() {
-
+  
 
 
 
