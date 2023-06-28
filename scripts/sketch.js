@@ -87,7 +87,7 @@ field.splice(0);
 
 
 
-function touchStarted() {
+function touchEnded() {
   // Your code logic for handling the touch event here
   vectors = !vectors;
   background(255);
