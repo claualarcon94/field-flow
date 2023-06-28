@@ -85,18 +85,18 @@ field.splice(0);
  // fr.innerHTML = floor(frameRate());
 }
 
-function touchStarted() {
-//do nothing
-}
+
 
 function touchEnded() {
-  // Your code logic for handling the touch event here
-  vectors = !vectors;
-  background(255);
-  if (!vectors) {
-    background(25);
-    particles.splice(0);
-    for (let i = 0; i < 400; i++) particles[i] = new Particle();
+  // Check if there is exactly one touch event
+  if (touches.length === 1) {
+    vectors = !vectors;
+    background(255);
+    if (!vectors) {
+      background(25);
+      particles.splice(0);
+      for (let i = 0; i < 400; i++) particles[i] = new Particle();
+    }
   }
 }
 
