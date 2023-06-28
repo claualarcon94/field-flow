@@ -88,11 +88,15 @@ field.splice(0);
 
 
 let touchProcessed = false;
+let touchDelay = 500; // Adjust the delay time as needed
+let lastTouchTime = 0;
 
 function touchStarted() {
-  if (!touchProcessed) {
+  let currentTime = millis();
+  if (!touchProcessed && (currentTime - lastTouchTime) > touchDelay) {
     touchProcessed = true;
-    
+    lastTouchTime = currentTime;
+
     console.log(touches.length);
     vectors = !vectors;
     background(255);
