@@ -21,7 +21,7 @@ function setup() {
 
   //field = new Array(cols * rows);
 
-  for (let i = 0; i < 400; i++) {
+  for (let i = 0; i < 100; i++) {
 
     particles[i] = new Particle();
   }
