@@ -88,8 +88,8 @@ field.splice(0);
 
 
 function touchStarted() {
-  // Check if there is exactly one touch event
-  if (touches.length >= 0) {
+  
+  
     console.log(touches.length);
     vectors = !vectors;
     background(255);
@@ -98,7 +98,8 @@ function touchStarted() {
       particles.splice(0);
       for (let i = 0; i < 400; i++) particles[i] = new Particle();
     }
-  }
+  
+
 }
 
 
