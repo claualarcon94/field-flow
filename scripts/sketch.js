@@ -87,9 +87,12 @@ field.splice(0);
 
 
 
+let touchProcessed = false;
+
 function touchStarted() {
-  
-  
+  if (!touchProcessed) {
+    touchProcessed = true;
+    
     console.log(touches.length);
     vectors = !vectors;
     background(255);
@@ -98,8 +101,11 @@ function touchStarted() {
       particles.splice(0);
       for (let i = 0; i < 400; i++) particles[i] = new Particle();
     }
-  
+  }
+}
 
+function touchEnded() {
+  touchProcessed = false;
 }
 
 
