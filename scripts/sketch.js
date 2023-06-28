@@ -85,7 +85,9 @@ field.splice(0);
  // fr.innerHTML = floor(frameRate());
 }
 
-
+function touchStarted() {
+//do nothing
+}
 
 function touchEnded() {
   // Your code logic for handling the touch event here
