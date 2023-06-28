@@ -85,15 +85,17 @@ field.splice(0);
  // fr.innerHTML = floor(frameRate());
 }
 
-function mousePressed() {
-    vectors = !vectors;
-    console.log('The "g" key is pressed!');
-    background(255);
-    if(!vectors){
-      background(25);
-      particles.splice(0);
-      for (let i = 0; i < 400; i++) particles[i] = new Particle();
-    }
+
+
+function touchStarted() {
+  // Your code logic for handling the touch event here
+  vectors = !vectors;
+  background(255);
+  if (!vectors) {
+    background(25);
+    particles.splice(0);
+    for (let i = 0; i < 400; i++) particles[i] = new Particle();
+  }
 }
 
 
