@@ -2,7 +2,7 @@ function Particle() {
   this.pos = createVector(random(width), random(height));
   this.vel = createVector(0, 0);
   this.acc = createVector(0, 0);
-  this.maxspeed = 4;
+  this.maxspeed = 10;
   this.h = 0;
   this.prevPos = this.pos.copy();
 
@@ -17,8 +17,8 @@ function Particle() {
 
   this.recieveField = (field) => {
     let x, y;
-    x = Math.floor(this.pos.x / scl);
-    y = Math.floor(this.pos.y / scl);
+    y = floor(this.pos.x / scl);
+    x = floor(this.pos.y / scl);
     this.applyForce(field[x][y]);
 
   };

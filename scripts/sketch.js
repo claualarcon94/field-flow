@@ -11,12 +11,9 @@ var size;
 
 
 function setup() {
-  size = 800;
-  canvas = createCanvas(size, size);
+  //size = 800;
+  canvas = createCanvas(windowWidth, windowHeight, WebGL2RenderingContext);
   canvas.parent(document.getElementById('canvas-container'));
-  //colorMode(HSB, 255);
-  //pixelDensity(2);
-  //background(150);
 
   cols = floor(width / scl);
   rows = floor(height / scl);
@@ -24,18 +21,17 @@ function setup() {
 
   //field = new Array(cols * rows);
 
-  for (let i = 0; i < 200; i++) {
+  for (let i = 0; i < 400; i++) {
 
     particles[i] = new Particle();
   }
-  loadPixels();
   noiseSeed(99);
   background(25);
 }
 
 function draw() {
   
-
+field.splice(0);
 
 
   var yoff = 0;
@@ -45,7 +41,7 @@ function draw() {
     for (var x = 0; x <= cols; x++) {
       var angle = noise(xoff, yoff, zoff) * TWO_PI * 4;
       var vector = p5.Vector.fromAngle(angle);
-      vector.setMag(1);
+      vector.setMag(5);
       row.push(vector);
       xoff += inc;
 
@@ -86,23 +82,18 @@ function draw() {
 
   }
   field.splice(0, field.length);
-  fr.innerHTML = floor(frameRate());
-
-
-
-
-
+ // fr.innerHTML = floor(frameRate());
 }
 
-function keyPressed() {
-  // Check if the key pressed is "g"
-  if (keyCode === 71) {
-    // Perform the action when "g" key is pressed
+function mousePressed() {
     vectors = !vectors;
     console.log('The "g" key is pressed!');
     background(255);
-
-  }
+    if(!vectors){
+      background(25);
+      particles.splice(0);
+      for (let i = 0; i < 400; i++) particles[i] = new Particle();
+    }
 }
 
 
