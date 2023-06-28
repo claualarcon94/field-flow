@@ -89,7 +89,8 @@ field.splice(0);
 
 function touchEnded() {
   // Check if there is exactly one touch event
-  if (touches.length > 0) {
+  if (touches.length >= 0) {
+    console.log(touches.length);
     vectors = !vectors;
     background(255);
     if (!vectors) {
