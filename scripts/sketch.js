@@ -87,7 +87,7 @@ field.splice(0);
 
 
 
-function touchEnded() {
+function touchStarted() {
   // Check if there is exactly one touch event
   if (touches.length >= 0) {
     console.log(touches.length);
