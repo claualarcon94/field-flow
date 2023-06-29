@@ -1,29 +1,54 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sketch</title>
-    <link rel="stylesheet" type="text/css" href="styles/style.css">
-    <script src="https://cdn.jsdelivr.net/npm/p5@1.4.0"></script>   
 
-    <script language="javascript" type="text/javascript" src="scripts/sketch.js"></script>
-    <script language="javascript" type="text/javascript" src="scripts/particle.js"></script>
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sketch</title>
+  <link rel="stylesheet" type="text/css" href="styles/style.css">
+  <script src="https://cdn.jsdelivr.net/npm/p5@1.4.0"></script>
 
-  </head>
-  <body>
+  <script language="javascript" type="text/javascript" src="scripts/sketch.js"></script>
+  <script language="javascript" type="text/javascript" src="scripts/particle.js"></script>
+
+</head>
+
+<body>
+
+  <div class="canvas-container" id="canvas-container"></div>
+
+  <div class="color-grid">
     
-   <div class="canvas-container" id="canvas-container"></div>
+    <p class="color"></p>
+    <div></div>
 
-   <div class="color-grid">
-    <p class="red"></p>
-    <p class="green"></p>
-    <p class="blue"></p>
-    <div class="color"></div>
-   </div>
- 
-    
-    <!--<p class="js-frameRate"></p>-->
+    <div class="grid-item">
+      <div id="redSlider"></div>
+    </div>
 
-  </body>
+    <div class="red"></div>
+
+    <div class="grid-item">
+      <div id="greenSlider"></div>
+    </div>
+
+    <div class="green"></div>
+
+    <div class="grid-item">
+      <div id="blueSlider"></div>
+    </div>
+    <div class="blue"></div>
+
+
+
+
+
+
+  </div>
+
+
+  <!--<p class="js-frameRate"></p>-->
+
+</body>
+
 </html>

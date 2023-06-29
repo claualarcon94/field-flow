@@ -11,18 +11,25 @@ canvas {
 p{
   color: white;
   text-align: center;
+  
 }
 
 .color-grid{
   display: grid;
   font-size: 15px;
-  grid-template-columns: 130px 130px 130px 100px;
-  grid-template-rows: 50px;
+  grid-template-columns: 130px 50px;
+  row-gap: 5px;
+  
   column-gap: 2px;
   align-items: center;
 }
 
 .color{
 height: 17.6px; 
+}
+
+.red, .green, .blue{
+  width: 30px;
+  height: 30px;
 }
 

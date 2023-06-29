@@ -27,9 +27,7 @@ function setup() {
 
   can = document.getElementById('canvas-container');
 
-  can.addEventListener('click', () => {
-    handleClick();
-  })
+  can.addEventListener('click', handleClick);
   
   cols = floor(width / scl);
   rows = floor(height / scl);
@@ -39,7 +37,11 @@ function setup() {
   //sliders
   sliderRed = createSlider(0,255,150);
   sliderGreen = createSlider(0,255,50);
-  sliderBlue=createSlider(0,255,255);
+  sliderBlue = createSlider(0,255,255);
+
+  sliderRed.parent(document.getElementById('redSlider'));
+  sliderGreen.parent(document.getElementById('greenSlider'));
+  sliderBlue.parent(document.getElementById('blueSlider'));
 
   for (let i = 0; i < 200; i++) {
 
@@ -50,9 +52,11 @@ function setup() {
 }
 
 function draw() {
+  /*
   document.querySelector('.red').innerHTML = sliderRed.value();
   document.querySelector('.green').innerHTML = sliderGreen.value();
   document.querySelector('.blue').innerHTML = sliderBlue.value();
+  */
 
   document.querySelector('.red').style.background = color(sliderRed.value(),0,0);
   document.querySelector('.green').style.background = color(0,sliderGreen.value(),0);
@@ -69,7 +73,7 @@ function draw() {
     for (var x = 0; x <= cols; x++) {
       var angle = noise(xoff, yoff, zoff) * TWO_PI * 4;
       var vector = p5.Vector.fromAngle(angle);
-      vector.setMag(5);
+      vector.setMag(1);
       row.push(vector);
       xoff += inc;
 
