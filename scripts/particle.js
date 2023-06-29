@@ -5,6 +5,7 @@ function Particle() {
   this.maxspeed = 10;
   this.h = 0;
   this.prevPos = this.pos.copy();
+  
 
 
   this.update = () => {
@@ -30,12 +31,14 @@ function Particle() {
   };
 
   this.show = () => {
-    stroke(this.h, 50, 255, 25);
+    //stroke(particleColor);
+    
+    stroke(this.h, sliderGreen.value(), sliderBlue.value(), 255);
     this.h = this.h + 1;
-    if (this.h > 255) {
+    if (this.h > sliderRed.value()) {
       this.h = 0;
     }
-    strokeWeight(1);
+    strokeWeight(0.1);
     line(this.pos.x, this.pos.y, this.prevPos.x, this.prevPos.y);
     this.updatePrev();
   };

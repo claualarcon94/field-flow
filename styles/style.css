@@ -1,12 +1,30 @@
 html, body {
   margin: 0;
   padding: 0;
+  font-family: Arial, Helvetica, sans-serif;
 }
 
 canvas {
   display: block;
+ 
 }
 
 p{
-  font-size: 30px;
+  color: white;
 }
+
+.color-grid{
+  display: grid;
+  font-size: 15px;
+  grid-template-columns: 130px 130px 130px 100px;
+  grid-template-rows: 50px;
+  column-gap: 2px;
+  align-items: center;
+  text-align: center;
+  
+}
+
+.color{
+height: 17.6px; 
+}
+
