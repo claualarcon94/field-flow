@@ -31,28 +31,22 @@ function setup() {
     handleClick();
   })
   
-  
-
   cols = floor(width / scl);
   rows = floor(height / scl);
   fr = document.querySelector('.js-frameRate');
 
-  //field = new Array(cols * rows);
-
-
-  noiseSeed(99);
-  background(25);
 
   //sliders
   sliderRed = createSlider(0,255,150);
-  sliderGreen = createSlider(0,255,255);
+  sliderGreen = createSlider(0,255,50);
   sliderBlue=createSlider(0,255,255);
 
   for (let i = 0; i < 200; i++) {
 
     particles[i] = new Particle();
   }
-
+  noiseSeed(99);
+  background(25);
 }
 
 function draw() {
@@ -66,10 +60,7 @@ function draw() {
 
   document.querySelector('.color').style.backgroundColor = color(sliderRed.value(),sliderGreen.value(),sliderBlue.value());
 
-  
-
-field.splice(0);
-
+  field.splice(0);
 
   var yoff = 0;
   for (var y = 0; y <= rows; y++) {
@@ -96,11 +87,7 @@ field.splice(0);
         line(0, 0, scl, vector.y);
         pop();
       }
-
-
-
-
-    }
+}
 
     yoff += inc;
     field.push(row);

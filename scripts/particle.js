@@ -67,8 +67,5 @@ function Particle() {
     }
     
   };
-
-  
-
 }
 

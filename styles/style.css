@@ -6,11 +6,11 @@ html, body {
 
 canvas {
   display: block;
- 
 }
 
 p{
   color: white;
+  text-align: center;
 }
 
 .color-grid{
@@ -20,8 +20,6 @@ p{
   grid-template-rows: 50px;
   column-gap: 2px;
   align-items: center;
-  text-align: center;
-  
 }
 
 .color{
