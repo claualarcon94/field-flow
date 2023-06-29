@@ -12,7 +12,7 @@ var size;
 
 function setup() {
   //size = 800;
-  canvas = createCanvas(windowWidth, windowHeight, WebGL2RenderingContext);
+  canvas = createCanvas(windowWidth, windowHeight);
   canvas.parent(document.getElementById('canvas-container'));
 
   cols = floor(width / scl);
@@ -31,58 +31,33 @@ function setup() {
 
 function draw() {
   
-field.splice(0);
 
+    
 
-  var yoff = 0;
-  for (var y = 0; y <= rows; y++) {
-    var xoff = 0;
-    const row = [];
-    for (var x = 0; x <= cols; x++) {
-      var angle = noise(xoff, yoff, zoff) * TWO_PI * 4;
-      var vector = p5.Vector.fromAngle(angle);
-      vector.setMag(5);
-      row.push(vector);
-      xoff += inc;
-
-
-      if (vectors) {
-        stroke(0);
-        strokeWeight(1);
-        rect(x * scl, y * scl, scl, scl);
-
-        push();
-
-        translate(x * scl, y * scl);
-        rotate(vector.heading());
-        strokeWeight(1);
-        line(0, 0, scl, vector.y);
-        pop();
-      }
-
-
-
-
-    }
-
-    yoff += inc;
-    field.push(row);
-    zoff += 0.0002;
-
-  }
+  
 
 
   for (let particle of particles) {
-    particle.recieveField(field);
+    particle.recieveField();
     particle.update();
     particle.edges();
     if (!vectors) {
+      
       particle.show();
+    }else{
+     
+      push();
+      translate(floor(particle.pos.x/scl)*scl,floor(particle.pos.y/scl)*scl);
+      rect(0,0,scl,scl);
+      rotate(particle.head.heading());
+      strokeWeight(1);
+      line(0, 0, scl, particle.head.y);
+      pop();
     }
-
+    zoff += 0.0002;
   }
-  field.splice(0, field.length);
- // fr.innerHTML = floor(frameRate());
+  zoff += 0.0002;
+  fr.innerHTML = floor(frameRate());
 }
 
 
@@ -100,11 +75,9 @@ function touchStarted() {
     console.log(touches.length);
     vectors = !vectors;
     background(255);
-    if (!vectors) {
-      background(25);
-      particles.splice(0);
-      for (let i = 0; i < 400; i++) particles[i] = new Particle();
-    }
+   
+
+   
   }
 }
 

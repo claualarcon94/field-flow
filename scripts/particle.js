@@ -5,6 +5,8 @@ function Particle() {
   this.maxspeed = 10;
   this.h = 0;
   this.prevPos = this.pos.copy();
+  this.head;
+  
 
 
   this.update = () => {
@@ -15,11 +17,19 @@ function Particle() {
 
   };
 
-  this.recieveField = (field) => {
+  this.recieveField = () => {
     let x, y;
-    y = floor(this.pos.x / scl);
-    x = floor(this.pos.y / scl);
-    this.applyForce(field[x][y]);
+    x = map(floor(this.pos.x / scl),0,cols,0,height/cols*inc);
+    y = map(floor(this.pos.y / scl),0,rows,0,width/rows*inc);
+
+    let angle = noise(y,x,zoff) * 4 * TWO_PI;
+    
+    let force = p5.Vector.fromAngle(angle);
+    this.head = force;
+    force.setMag(5);
+    this.applyForce(force);
+
+  console.log(this.head);
 
   };
 
