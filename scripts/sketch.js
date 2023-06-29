@@ -54,9 +54,9 @@ function draw() {
       line(0, 0, scl, particle.head.y);
       pop();
     }
-    zoff += 0.0002;
+    
   }
-  zoff += 0.0002;
+  zoff += 0.02;
   fr.innerHTML = floor(frameRate());
 }
 
