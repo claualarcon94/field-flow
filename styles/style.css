@@ -9,27 +9,31 @@ canvas {
 }
 
 p{
-  color: white;
-  text-align: center;
+  
+  font-size: 10px;
   
 }
 
 .color-grid{
   display: grid;
   font-size: 15px;
-  grid-template-columns: 130px 50px;
+  grid-template-columns: 130px 50px 130px 100px;
   row-gap: 5px;
-  
   column-gap: 2px;
   align-items: center;
+  
+  
 }
 
 .color{
-height: 17.6px; 
+height: 30px; 
+width: 30px;
+margin-left: 131.6px;
+
+margin-bottom: 5px;
 }
 
 .red, .green, .blue{
   width: 30px;
   height: 30px;
 }
-

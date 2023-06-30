@@ -1,5 +1,7 @@
 var inc = 0.1;
 var scl = 20;
+var maxspeed;
+var magnitude;
 var cols, rows;
 var fr;
 
@@ -39,9 +41,15 @@ function setup() {
   sliderGreen = createSlider(0,255,50);
   sliderBlue = createSlider(0,255,255);
 
+  forceSlider = createSlider(0,10,5);
+  velocitySlider = createSlider(0,10,5);
+
   sliderRed.parent(document.getElementById('redSlider'));
   sliderGreen.parent(document.getElementById('greenSlider'));
   sliderBlue.parent(document.getElementById('blueSlider'));
+
+  forceSlider.parent(document.getElementById('forceSlider'));
+  velocitySlider.parent(document.getElementById('velocitySlider'));
 
   for (let i = 0; i < 200; i++) {
 
@@ -52,17 +60,15 @@ function setup() {
 }
 
 function draw() {
-  /*
-  document.querySelector('.red').innerHTML = sliderRed.value();
-  document.querySelector('.green').innerHTML = sliderGreen.value();
-  document.querySelector('.blue').innerHTML = sliderBlue.value();
-  */
 
   document.querySelector('.red').style.background = color(sliderRed.value(),0,0);
   document.querySelector('.green').style.background = color(0,sliderGreen.value(),0);
   document.querySelector('.blue').style.background = color(0,0,sliderBlue.value());
 
   document.querySelector('.color').style.backgroundColor = color(sliderRed.value(),sliderGreen.value(),sliderBlue.value());
+
+  maxspeed = velocitySlider.value();
+  magnitude = forceSlider.value();
 
   field.splice(0);
 
@@ -73,7 +79,7 @@ function draw() {
     for (var x = 0; x <= cols; x++) {
       var angle = noise(xoff, yoff, zoff) * TWO_PI * 4;
       var vector = p5.Vector.fromAngle(angle);
-      vector.setMag(1);
+      vector.setMag(magnitude);
       row.push(vector);
       xoff += inc;
 
@@ -118,7 +124,7 @@ function draw() {
 let touchProcessed = false;
 let touchDelay = 500; // Adjust the delay time as needed
 let lastTouchTime = 0;
-
+/* //field
 function handleClick() {
   let currentTime = millis();
   if (!touchProcessed && (currentTime - lastTouchTime) > touchDelay) {
@@ -135,9 +141,15 @@ function handleClick() {
     }
   }
 }
+*/
 
-function touchEnded() {
-  touchProcessed = false;
+//restart sketch
+function handleClick(){
+  let currentTime = millis();
+  if (!touchProcessed && (currentTime - lastTouchTime) > touchDelay) {
+    lastTouchTime = currentTime;
+    background(25);
+    particles.splice(0);
+    for (let i = 0; i < 400; i++) particles[i] = new Particle();
+  }
 }
-
-

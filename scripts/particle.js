@@ -2,37 +2,24 @@ function Particle() {
   this.pos = createVector(random(width), random(height));
   this.vel = createVector(0, 0);
   this.acc = createVector(0, 0);
-  this.maxspeed = 5;
   this.h = 0;
   this.prevPos = this.pos.copy();
-  
-
 
   this.update = () => {
     this.vel.add(this.acc);
-    this.vel.limit(this.maxspeed);
+    this.vel.limit(maxspeed);
     this.pos.add(this.vel);
     this.acc.mult(0);
-
   };
 
   this.recieveField = (field) => {
     let x, y;
     y = floor(this.pos.x / scl);
     x = floor(this.pos.y / scl);
-    this.applyForce(field[x][y]);
-
-  };
-
-  this.applyForce = (force) => {
-
-    this.acc.add(force);
-
+    this.acc.add(field[x][y]);
   };
 
   this.show = () => {
-    //stroke(particleColor);
-    
     stroke(this.h, sliderGreen.value(), sliderBlue.value(), 255);
     this.h = this.h + 1;
     if (this.h > sliderRed.value()) {
@@ -46,7 +33,6 @@ function Particle() {
   this.updatePrev = () => {
     this.prevPos.set(this.pos);
   };
-  
 
   this.edges = () => {
     if (this.pos.x > width) {
@@ -65,7 +51,5 @@ function Particle() {
       this.pos.y = height;
       this.updatePrev();
     }
-    
   };
 }
-
